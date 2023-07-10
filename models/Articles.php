@@ -12,9 +12,4 @@
             $this->prize = $prize;
         }
     }
-
-
-$article = new Articles("https://arcaplanet.vtexassets.com/arquivos/ids/243820/royal-canin-size-cane-mini-adult.jpg", "Royal Canin Mini Adult", "Dog", "43,99");
-
-
 ?>
