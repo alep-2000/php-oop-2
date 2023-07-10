@@ -1,7 +1,10 @@
 <?php 
     require_once __DIR__ ."/models/Articles.php";
+    require_once __DIR__ ."/models/Food.php";
+
 
     var_dump($article);
+    var_dump($food);
 ?>
 
 <!DOCTYPE html>
