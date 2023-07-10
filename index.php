@@ -4,11 +4,6 @@
     require_once __DIR__ ."/models/Accessories.php";
     require_once __DIR__ ."/models/Games.php";
 
-
-    // var_dump($article);
-    // var_dump($food);
-    // var_dump($accessories);
-    // var_dump($games);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +21,7 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex flex-wrap">
+            <div class="col-4">
                 <div class="card mt-3 me-3 mb-3 text-center p-2">
                     <img class="size" src="<?php echo $royal->image?>">
                     <h3><?php echo $royal->name ?></h3>
@@ -35,6 +30,8 @@
                     <p><?php echo "Net Weight:" ." " .$royal->netWeight ?></p>
                     <p><?php echo "Ingredients:" ." " .$royal->ingredients ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 me-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $almo->image?>">
                     <h3><?php echo $almo->name ?></h3>
@@ -43,6 +40,8 @@
                     <p><?php echo "Net Weight:" ." " .$almo->netWeight ?></p>
                     <p><?php echo "Ingredients:" ." " .$almo->ingredients ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $nature->image?>">
                     <h3><?php echo $nature->name ?></h3>
@@ -51,6 +50,8 @@
                     <p><?php echo "Net Weight:" ." " .$nature->netWeight ?></p>
                     <p><?php echo "Ingredients:" ." " .$nature->ingredients ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $fish->image?>">
                     <h3><?php echo $fish->name ?></h3>
@@ -59,6 +60,8 @@
                     <p><?php echo "Net Weight:" ." " .$fish->netWeight ?></p>
                     <p><?php echo "Ingredients:" ." " .$fish->ingredients ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $voliera->image?>">
                     <h3><?php echo $voliera->name ?></h3>
@@ -67,6 +70,8 @@
                     <p><?php echo "Materials:" ." " .$voliera->materials ?></p>
                     <p><?php echo "Size:" ." " .$voliera->size ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $easy->image?>">
                     <h3><?php echo $easy->name ?></h3>
@@ -75,6 +80,8 @@
                     <p><?php echo "Materials:" ." " .$easy->materials ?></p>
                     <p><?php echo "Size:" ." " .$easy->size ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $kong->image?>">
                     <h3><?php echo $kong->name ?></h3>
@@ -83,6 +90,8 @@
                     <p><?php echo "Characteristics:" ." " .$kong->characteristics ?></p>
                     <p><?php echo "Size:" ." " .$kong->size ?></p>
                 </div>
+            </div>
+            <div class="col-4">        
                 <div class="card mt-3 mb-3 text-center margin p-2">
                     <img src="<?php echo $trixie->image?>">
                     <h3><?php echo $trixie->name ?></h3>
