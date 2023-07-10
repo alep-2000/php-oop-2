@@ -1,3 +1,9 @@
+<?php 
+    require_once __DIR__ ."/models/Articles.php";
+
+    var_dump($article);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
