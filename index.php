@@ -1,9 +1,19 @@
 <?php 
-    require_once __DIR__ ."/models/Articles.php";
-    require_once __DIR__ ."/models/Food.php";
-    require_once __DIR__ ."/models/Accessories.php";
-    require_once __DIR__ ."/models/Games.php";
+    require_once __DIR__ ."/Models/Articles.php";
+    require_once __DIR__ ."/Models/Food.php";
+    require_once __DIR__ ."/Models/Accessory.php";
+    require_once __DIR__ ."/Models/Game.php";
 
+    $products = [
+        new Food("https://m.media-amazon.com/images/I/51MaQzo2JNL._AC_UF894,1000_QL80_.jpg", "Royal Canin Mini Adult", "Dog", "43,99", "545", "prosciutto,riso"),
+        new Food("https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg", "Almo Nature Holistic <br/> Maintenance Medium Large <br/> Tonno e Riso", "Cat", "34,99", "400", "tonno, pollo, prosciutto"),
+        new Food("https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg", "Almo Nature Cat Daily Lattina", "Dog", "44,99", "600", "manzo,cereali"),
+        new Food("https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg", "Mangime per Pesci Guppy in <br/> Fiocchi", "Fish", "2,95", "30", "Pesci e sottoprodotti dei pesci, Cereali, <br/> Lieviti, Alghe"),
+        new Accessory("https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg", "Voliera Wilma in Legno", "Bird", "184,99", "Legno", "M: L 83 x P 67 x H 153"),
+        new Accessory("https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg", "Cartucce Filtranti per Filtro <br/> EasyCrystal", "Fish", "2,29", "Materiale espanso", "ND" ),
+        new Game("https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg", "Kong Classic", "Dog", "13,49", "Galleggia e rimbalza", "8,5 cm x 10 cm"),
+        new Game("https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg", "Topini di peluche Trixie", "Cat", "4,99", "Morbido con codina in corda", "8,5 cm x 10 cm")
+    ]
 ?>
 
 <!DOCTYPE html>
@@ -21,86 +31,28 @@
     </header>
     <div class="container">
         <div class="row">
+            <?php foreach($products as $product): ?>
             <div class="col-4">
                 <div class="card mt-3 me-3 mb-3 text-center p-2">
-                    <img class="size" src="<?php echo $royal->image?>">
-                    <h3><?php echo $royal->name ?></h3>
-                    <p><?php echo $royal->type ?></p>
-                    <p><?php echo "Prize:" ." " .$royal->prize ."€" ?></p>
-                    <p><?php echo "Net Weight:" ." " .$royal->netWeight ?></p>
-                    <p><?php echo "Ingredients:" ." " .$royal->ingredients ?></p>
+                    <img class="size" src="<?php echo $product->image?>">
+                    <h3><?php echo $product->name ?></h3>
+                    <p><?php echo $product->type ?></p>
+                    <p><?php echo "Prize:" ." " .$product->prize ."€" ?></p>
+                    <?php if(get_class($product) === 'Food'){ ?>
+                    <p><?php echo "Net Weight:" ." " .$product->netWeight ?></p>
+                    <p><?php echo "Ingredients:" ." " .$product->ingredients ?></p>
+                    <?php } ?>
+                    <?php if(get_class($product) === 'Accessory'){ ?>
+                    <p><?php echo "Materials:" ." " .$product->materials ?></p>
+                    <p><?php echo "Size:" ." " .$product->size ?></p>
+                    <?php } ?>
+                    <?php if(get_class($product) === 'Game'){ ?>
+                    <p><?php echo "Characteristics:" ." " .$product->characteristics ?></p>
+                    <p><?php echo "Size:" ." " .$product->size ?></p>
+                    <?php } ?>
                 </div>
             </div>
-            <div class="col-4">        
-                <div class="card mt-3 me-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $almo->image?>">
-                    <h3><?php echo $almo->name ?></h3>
-                    <p><?php echo $almo->type ?></p>
-                    <p><?php echo "Prize:" ." " .$almo->prize ."€" ?></p>
-                    <p><?php echo "Net Weight:" ." " .$almo->netWeight ?></p>
-                    <p><?php echo "Ingredients:" ." " .$almo->ingredients ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $nature->image?>">
-                    <h3><?php echo $nature->name ?></h3>
-                    <p><?php echo $nature->type ?></p>
-                    <p><?php echo "Prize:" ." " .$nature->prize ."€" ?></p>
-                    <p><?php echo "Net Weight:" ." " .$nature->netWeight ?></p>
-                    <p><?php echo "Ingredients:" ." " .$nature->ingredients ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $fish->image?>">
-                    <h3><?php echo $fish->name ?></h3>
-                    <p><?php echo $fish->type ?></p>
-                    <p><?php echo "Prize:" ." " .$fish->prize ."€" ?></p>
-                    <p><?php echo "Net Weight:" ." " .$fish->netWeight ?></p>
-                    <p><?php echo "Ingredients:" ." " .$fish->ingredients ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $voliera->image?>">
-                    <h3><?php echo $voliera->name ?></h3>
-                    <p><?php echo $voliera->type ?></p>
-                    <p><?php echo "Prize:" ." " .$voliera->prize ."€" ?></p>
-                    <p><?php echo "Materials:" ." " .$voliera->materials ?></p>
-                    <p><?php echo "Size:" ." " .$voliera->size ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $easy->image?>">
-                    <h3><?php echo $easy->name ?></h3>
-                    <p><?php echo $easy->type ?></p>
-                    <p><?php echo "Prize:" ." " .$easy->prize ."€" ?></p>
-                    <p><?php echo "Materials:" ." " .$easy->materials ?></p>
-                    <p><?php echo "Size:" ." " .$easy->size ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $kong->image?>">
-                    <h3><?php echo $kong->name ?></h3>
-                    <p><?php echo $kong->type ?></p>
-                    <p><?php echo "Prize:" ." " .$kong->prize ."€" ?></p>
-                    <p><?php echo "Characteristics:" ." " .$kong->characteristics ?></p>
-                    <p><?php echo "Size:" ." " .$kong->size ?></p>
-                </div>
-            </div>
-            <div class="col-4">        
-                <div class="card mt-3 mb-3 text-center margin p-2">
-                    <img src="<?php echo $trixie->image?>">
-                    <h3><?php echo $trixie->name ?></h3>
-                    <p><?php echo $trixie->type ?></p>
-                    <p><?php echo "Prize:" ." " .$trixie->prize ."€" ?></p>
-                    <p><?php echo "Characteristics:" ." " .$trixie->characteristics ?></p>
-                    <p><?php echo "Size:" ." " .$trixie->size ?></p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
